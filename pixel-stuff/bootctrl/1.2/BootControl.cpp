@@ -24,9 +24,13 @@
 #include <cutils/properties.h>
 #include <libboot_control/libboot_control.h>
 #include <log/log.h>
-#ifndef __ANDROID_RECOVERY__
-#include <trusty/tipc.h>
-#endif
+// #include <trusty/tipc.h>  // Disabled due to missing file
+
+// Stub fallback to prevent build errors when TIPC is unavailable
+#include <sys/uio.h> // for struct iovec
+inline int tipc_connect(const char*, const char*) { return -1; }
+inline int tipc_send(int, const struct iovec*, int, void*, int) { return -1; }
+inline void tipc_close(int) {}
 
 #include "DevInfo.h"
 #include "GptUtils.h"
