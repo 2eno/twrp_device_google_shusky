@@ -24,7 +24,9 @@
 #include <cutils/properties.h>
 #include <libboot_control/libboot_control.h>
 #include <log/log.h>
+#ifndef __ANDROID_RECOVERY__
 #include <trusty/tipc.h>
+#endif
 
 #include "DevInfo.h"
 #include "GptUtils.h"
