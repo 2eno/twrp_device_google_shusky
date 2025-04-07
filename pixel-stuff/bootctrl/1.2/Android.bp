@@ -62,6 +62,8 @@ cc_binary {
 }
 
 cc_library {
+    name: "libtrusty",
+    recovery_available: true,
     name: "android.hardware.boot@1.2-impl-pixel",
     stem: "android.hardware.boot@1.0-impl-1.2-impl-pixel",
     recovery: true,
