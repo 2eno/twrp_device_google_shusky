@@ -34,7 +34,6 @@ cc_binary {
     name: "android.hardware.boot@1.2-service-pixel",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
-    // vendor: true,
     recovery: true,
     init_rc: ["android.hardware.boot@1.2-service-pixel.rc"],
     srcs: [
@@ -61,17 +60,15 @@ cc_binary {
     ],
 }
 
-cc_library {
-    name: "libtrusty",
-    recovery_available: true,
+cc_binary {
     name: "android.hardware.boot@1.2-impl-pixel",
     stem: "android.hardware.boot@1.0-impl-1.2-impl-pixel",
     recovery: true,
+    relative_install_path: "hw",
     srcs: [
         "BootControl.cpp",
         "GptUtils.cpp",
     ],
-    relative_install_path: "hw",
     shared_libs: [
         "libbase",
         "liblog",
